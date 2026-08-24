@@ -1,0 +1,5 @@
+import Link from "next/link";
+import { Brand } from "@/components/brand";
+export const metadata = { title: "Workspace para agentes" };
+const tools = ["CRM e leads", "Imóveis", "Pipeline", "Agenda", "Oportunidades", "Propostas", "Referências", "Equipas", "Financeiro", "Perfil e segurança"];
+export default function AgentesPage() { return <main className="professional"><header><Brand /><Link href="/">Voltar ao marketplace</Link></header><section><div><div className="eyebrow">Workspace profissional</div><h1>O seu negócio imobiliário, num só lugar.</h1><p>Ferramentas operacionais para agentes em Portugal — desde o primeiro contacto ao acompanhamento do negócio.</p><div className="actions"><button className="button" disabled>Entrar no workspace</button><span className="muted">Autenticação disponível na próxima etapa.</span></div></div><div className="tool-grid">{tools.map((tool, index) => <div key={tool}><span>{String(index + 1).padStart(2, "0")}</span>{tool}</div>)}</div></section><aside>As ações profissionais no marketplace exigirão verificação de identidade e associação profissional/AMI. Nunca são autoaprovadas.</aside></main>; }
