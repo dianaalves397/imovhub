@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
+export const metadata = { title: "Clientes" };
+export default function ClientesPage() { return <><SiteHeader /><main className="section-page"><div className="eyebrow">Para clientes e proprietários</div><h1>Como podemos ajudar?</h1><p className="lead">Escolha o percurso que corresponde ao seu momento.</p><div className="choice-grid"><Link href="/clientes/comprar"><span>01</span><h2>Quero comprar ou arrendar</h2><p>Explore a oferta disponível e encontre a próxima casa.</p><b>Pesquisar imóveis →</b></Link><Link href="/clientes/vender"><span>02</span><h2>Quero vender ou colocar para arrendar</h2><p>Partilhe o seu imóvel e receba propostas de agentes elegíveis.</p><b>Apresentar imóvel →</b></Link></div></main></>; }

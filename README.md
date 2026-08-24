@@ -28,3 +28,31 @@ Ler `AGENTS.md` antes de alterar o projeto.
 5. Backoffice.
 6. Billing, emails e automações.
 7. Testes, performance, acessibilidade e observabilidade.
+
+## Arranque local
+
+Requer Node.js 20.9 ou superior.
+
+```bash
+cp .env.example .env.local
+npm install
+npm run dev
+```
+
+Preencha apenas a URL e a chave `anon`/publishable do projeto Supabase em `.env.local`. Nunca use a `service_role` no frontend. A aplicação valida estas variáveis quando cria um cliente Supabase.
+
+## Comandos de qualidade
+
+- `npm run lint` — análise estática.
+- `npm run typecheck` — validação TypeScript estrita.
+- `npm test` — testes unitários e de componentes.
+- `npm run build` — build de produção Next.js.
+
+## Estrutura inicial
+
+- `src/app/clientes` contém a experiência de compradores, arrendatários e proprietários.
+- `src/app/agentes` contém a entrada visualmente distinta para o workspace profissional.
+- `src/app/admin` contém a entrada restrita do backoffice.
+- `src/lib/supabase` centraliza os clientes Supabase; as próximas funcionalidades devem preservar Auth e RLS.
+
+Os fluxos de transações financeiras ficam desligados através de `NEXT_PUBLIC_ENABLE_FINANCIAL_TRANSACTIONS=false` até existir validação jurídica e fiscal.
