@@ -1,3 +1,4 @@
 import { Brand } from "@/components/brand";
+import { requireAdminWithMfa } from "@/lib/auth/admin";
 export const metadata = { title: "Administração", robots: { index: false, follow: false } };
-export default function AdminPage() { return <main className="admin-page"><Brand /><section><div className="eyebrow">Acesso restrito</div><h1>Administração ImovHub</h1><p>Esta área requer autenticação, função administrativa atribuída no servidor e MFA. Nenhuma função privilegiada pode ser atribuída pelo frontend.</p><div className="notice">O controlo de acesso será ligado ao Supabase Auth antes da disponibilização do backoffice.</div></section></main>; }
+export default async function AdminPage() { const { user } = await requireAdminWithMfa(); return <main className="admin-page"><Brand /><section><div className="eyebrow">Acesso restrito · MFA ativo</div><h1>Administração ImovHub</h1><p>Sessão administrativa validada para {user.email}. O backoffice operacional será disponibilizado na Issue #6; todas as mutações privilegiadas serão autorizadas no servidor e auditadas.</p></section></main>; }

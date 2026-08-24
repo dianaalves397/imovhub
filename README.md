@@ -56,3 +56,7 @@ Preencha apenas a URL e a chave `anon`/publishable do projeto Supabase em `.env.
 - `src/lib/supabase` centraliza os clientes Supabase; as próximas funcionalidades devem preservar Auth e RLS.
 
 Os fluxos de transações financeiras ficam desligados através de `NEXT_PUBLIC_ENABLE_FINANCIAL_TRANSACTIONS=false` até existir validação jurídica e fiscal.
+
+## Autenticação
+
+Os fluxos Supabase Auth de registo para clientes/profissionais, confirmação de email, login, recuperação e alteração de password estão em `/auth`. A área `/conta/seguranca` requer sessão. `/admin` requer simultaneamente uma função administrativa atribuída fora do frontend e MFA `aal2`. Consulte `docs/auth-security.md` antes de configurar produção e aplique as migrations através do workflow Supabase aprovado.
